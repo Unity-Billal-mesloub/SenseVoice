@@ -46,15 +46,15 @@ Online Demo:
 
 <a name="What's News"></a>
 # What's New 🔥
-- 2026/07: **FunASR 1.3.29 restores SenseVoice VAD segment timestamps** — when token timestamps and a punctuation model are unavailable, `sentence_timestamp=True` now returns every VAD region through `sentence_info`, so subtitle and clipping clients receive usable segment boundaries instead of an empty timeline. Install with `pip install -U "funasr==1.3.29"`. [Release notes](https://github.com/modelscope/FunASR/releases/tag/v1.3.29) · [PyPI](https://pypi.org/project/funasr/1.3.29/)
-- 2026/07: **FunASR 1.3.27 adds detected-language metadata for SenseVoice** — the OpenAI-compatible endpoint now reports detected `zh`, `en`, `yue`, `ja`, or `ko` in `verbose_json.language`. Install with `pip install -U "funasr==1.3.27"`. [Release notes](https://github.com/modelscope/FunASR/releases/tag/v1.3.27) · [API guide](https://www.funasr.com/en/blog/funasr-v1-3-27-language-metadata-vllm-fallback.html) · [PyPI](https://pypi.org/project/funasr/1.3.27/)
-- 2026/06: **SenseVoice on llama.cpp / GGUF** — run it on CPU/edge as a single self-contained binary (whisper.cpp-style), built-in VAD, no Python at runtime. The q8 model is only ~254 MB with the same accuracy. [runtime/llama.cpp/](./runtime/llama.cpp/) · [Releases](https://github.com/QwenAudio/SenseVoice/releases) · [GGUF on Hugging Face](https://huggingface.co/FunAudioLLM/SenseVoiceSmall-GGUF)
+- 2026/07: **FunASR 1.3.29 restores SenseVoice VAD segment timestamps** — when token timestamps and a punctuation model are unavailable, `sentence_timestamp=True` now returns every VAD region through `sentence_info`, so subtitle and clipping clients receive usable segment boundaries instead of an empty timeline. Install with `pip install -U "funasr==1.3.29"`. [Release notes](https://github.com/Unity-Billal-mesloub/Fun-ASR/releases/tag/v1.3.29) · [PyPI](https://pypi.org/project/funasr/1.3.29/)
+- 2026/07: **FunASR 1.3.27 adds detected-language metadata for SenseVoice** — the OpenAI-compatible endpoint now reports detected `zh`, `en`, `yue`, `ja`, or `ko` in `verbose_json.language`. Install with `pip install -U "funasr==1.3.27"`. [Release notes](https://github.com/Unity-Billal-mesloub/Fun-ASR/releases/tag/v1.3.27) · [API guide](https://www.funasr.com/en/blog/funasr-v1-3-27-language-metadata-vllm-fallback.html) · [PyPI](https://pypi.org/project/funasr/1.3.27/)
+- 2026/06: **SenseVoice on llama.cpp / GGUF** — run it on CPU/edge as a single self-contained binary (whisper.cpp-style), built-in VAD, no Python at runtime. The q8 model is only ~254 MB with the same accuracy. [runtime/llama.cpp/](./runtime/llama.cpp/) · [Releases](https://github.com/Unity-Billal-mesloub/SenseVoice/releases) · [GGUF on Hugging Face](https://huggingface.co/FunAudioLLM/SenseVoiceSmall-GGUF)
 - 2026/05: FunASR can compose SenseVoiceSmall with separate FSMN-VAD, CAM++, and punctuation models to produce per-sentence speaker labels. Diarization is not a native SenseVoiceSmall checkpoint output. Requires installing FunASR from source: `pip install git+https://github.com/modelscope/FunASR.git`
 - 2024/11: Add support for timestamp based on the CTC alignment.
 - 2024/7: Added Export Features for [ONNX](./demo_onnx.py) and [libtorch](./demo_libtorch.py), as well as Python Version Runtimes: [funasr-onnx-0.4.0](https://pypi.org/project/funasr-onnx/), [funasr-torch-0.1.1](https://pypi.org/project/funasr-torch/)
 - 2024/7: The [SenseVoice-Small](https://www.modelscope.cn/models/iic/SenseVoiceSmall) voice understanding model is open-sourced, which offers high-precision multilingual speech recognition, emotion recognition, and audio event detection capabilities for Mandarin, Cantonese, English, Japanese, and Korean and leads to exceptionally low inference latency.  
-- 2024/7: The CosyVoice for natural speech generation with multi-language, timbre, and emotion control. CosyVoice excels in multi-lingual voice generation, zero-shot voice generation, cross-lingual voice cloning, and instruction-following capabilities. [CosyVoice repo](https://github.com/QwenAudio/CosyVoice) and [CosyVoice space](https://www.modelscope.cn/studios/iic/CosyVoice-300M).
-- 2024/7: [FunASR](https://github.com/modelscope/FunASR) is a fundamental speech recognition toolkit that offers a variety of features, including speech recognition (ASR), Voice Activity Detection (VAD), Punctuation Restoration, Language Models, Speaker Verification, Speaker Diarization and multi-talker ASR.
+- 2024/7: The CosyVoice for natural speech generation with multi-language, timbre, and emotion control. CosyVoice excels in multi-lingual voice generation, zero-shot voice generation, cross-lingual voice cloning, and instruction-following capabilities. 
+- 2024/7: [FunASR](https://github.com/Unity-Billal-mesloub/Fun-ASR) is a fundamental speech recognition toolkit that offers a variety of features, including speech recognition (ASR), Voice Activity Detection (VAD), Punctuation Restoration, Language Models, Speaker Verification, Speaker Diarization and multi-talker ASR.
 
 <a name="Benchmarks"></a>
 # Benchmarks 📝
@@ -147,7 +147,7 @@ print(text)
 - `model_dir`: The name of the model, or the path to the model on the local disk.
 - `trust_remote_code`:
   - When `True`, it means that the model's code implementation is loaded from `remote_code`, which specifies the exact location of the `model` code (for example, `model.py` in the current directory). It supports absolute paths, relative paths, and network URLs.
-  - When `False`, it indicates that the model's code implementation is the integrated version within [FunASR](https://github.com/modelscope/FunASR). At this time, modifications made to `model.py` in the current directory will not be effective, as the version loaded is the internal one from FunASR. For the model code, [click here to view](https://github.com/modelscope/FunASR/tree/main/funasr/models/sense_voice).
+  - When `False`, it indicates that the model's code implementation is the integrated version within [FunASR](https://github.com/Unity-Billal-mesloub/Fun-ASR). At this time, modifications made to `model.py` in the current directory will not be effective, as the version loaded is the internal one from FunASR. For the model code, [click here to view](https://github.com/Unity-Billal-mesloub/Fun-ASR/tree/main/funasr/models/sense_voice).
 - `vad_model`: This indicates the activation of VAD (Voice Activity Detection). The purpose of VAD is to split long audio into shorter clips. In this case, the inference time includes both VAD and SenseVoice total consumption, and represents the end-to-end latency. If you wish to test the SenseVoice model's inference time separately, the VAD model can be disabled.
 - `vad_kwargs`: Specifies the configurations for the VAD model. `max_single_segment_time`: denotes the maximum duration for audio segmentation by the `vad_model`, with the unit being milliseconds (ms).
 - `use_itn`: Whether the output result includes punctuation and inverse text normalization.
@@ -204,7 +204,7 @@ res = model.generate(
 )
 ```
 
-For more usage, please refer to [docs](https://github.com/modelscope/FunASR/blob/main/docs/tutorial/README.md)
+For more usage, please refer to [docs](https://github.com/Unity-Billal-mesloub/Fun-ASR/blob/main/docs/tutorial/README.md)
 
 ### Inference directly
 
@@ -274,14 +274,14 @@ Note: Libtorch model is exported to the original model directory.
 
 ### Run on CPU / edge — llama.cpp / GGUF (no GPU, no Python)
 
-Run SenseVoice as a **single self-contained binary** — this is to SenseVoice what [whisper.cpp](https://github.com/ggml-org/whisper.cpp) is to Whisper, but with far stronger Chinese & Cantonese accuracy. Built-in FSMN-VAD, no Python at runtime.
+Run SenseVoice as a **single self-contained binary** — this is to SenseVoice what [whisper.cpp](https://github.com/Unity-Billal-mesloub/whisper.cpp) is to Whisper, but with far stronger Chinese & Cantonese accuracy. Built-in FSMN-VAD, no Python at runtime.
 
 ```bash
 bash runtime/llama.cpp/download-funasr-model.sh sensevoice ./gguf
 llama-funasr-sensevoice -m ./gguf/sensevoice-small-f16.gguf --vad ./gguf/fsmn-vad.gguf -a audio.wav
 ```
 
-**Prebuilt binaries:** [Releases](https://github.com/QwenAudio/SenseVoice/releases) · **Download & quickstart:** [funasr.com/llama-cpp](https://www.funasr.com/llama-cpp.html) · **GGUF:** [Hugging Face](https://huggingface.co/FunAudioLLM/SenseVoiceSmall-GGUF) · **Docs & benchmarks:** [runtime/llama.cpp/](./runtime/llama.cpp/)
+**Prebuilt binaries:** [Releases](https://github.com/Unity-Billal-mesloub/SenseVoice/releases) · **Download & quickstart:** [funasr.com/llama-cpp](https://www.funasr.com/llama-cpp.html) · **GGUF:** [Hugging Face](https://huggingface.co/FunAudioLLM/SenseVoiceSmall-GGUF) · **Docs & benchmarks:** [runtime/llama.cpp/](./runtime/llama.cpp/)
 
 ## Service
 
@@ -296,7 +296,7 @@ fastapi run --port 50000
 ### Requirements
 
 ```shell
-git clone https://github.com/modelscope/FunASR.git && cd FunASR
+git clone https://github.com/Unity-Billal-mesloub/Fun-ASR.git && cd FunASR
 pip3 install -e ./
 ```
 ## 🐳 Docker Support
@@ -440,12 +440,9 @@ python webui.py
 
 
 ## Remarkable Third-Party Work
-- Triton (GPU) Deployment Best Practices: Using Triton + TensorRT, tested with FP32, achieving an acceleration ratio of 526 on V100 GPU. FP16 support is in progress. [Repository](https://github.com/modelscope/FunASR/blob/main/runtime/triton_gpu/README.md)
+- Triton (GPU) Deployment Best Practices: Using Triton + TensorRT, tested with FP32, achieving an acceleration ratio of 526 on V100 GPU. FP16 support is in progress. [Repository](https://github.com/Unity-Billal-mesloub/Fun-ASR/blob/main/runtime/triton_gpu/README.md)
 - Sherpa-onnx Deployment Best Practices: Supports using SenseVoice in 10 programming languages: C++, C, Python, C#, Go, Swift, Kotlin, Java, JavaScript, and Dart. Also supports deploying SenseVoice on platforms like iOS, Android, and Raspberry Pi. [Repository](https://k2-fsa.github.io/sherpa/onnx/sense-voice/index.html)
-- [Orca](https://github.com/stablyai/orca) integrates SenseVoice as local, offline speech-to-text through sherpa-onnx, with automatic Chinese, English, Japanese, Korean, and Cantonese detection on macOS, Linux, and Windows. The integration was [merged in #7436](https://github.com/stablyai/orca/pull/7436) and is available in the [v1.4.159-rc.1 prerelease](https://github.com/stablyai/orca/releases/tag/v1.4.159-rc.1); Orca v1.4.158 stable predates it.
-- [SenseVoice.cpp](https://github.com/lovemefan/SenseVoice.cpp). Inference of SenseVoice in pure C/C++ based on GGML, supporting 3-bit, 4-bit, 5-bit, 8-bit quantization, etc. with no third-party dependencies.
-- [streaming-sensevoice](https://github.com/pengzhendong/streaming-sensevoice) processes inference in chunks. To achieve pseudo-streaming, it employs a truncated attention mechanism, sacrificing some accuracy. Additionally, this technology supports CTC prefix beam search and hot-word boosting features.
-- [OmniSenseVoice](https://github.com/lifeiteng/OmniSenseVoice) is optimized for lightning-fast inference and batching process. 
+
 - [SenseVoice Hotword](https://www.modelscope.cn/models/dengcunqin/SenseVoiceSmall_hotword)，Neural Network Hotword Enhancement，[Contextualized End-to-End Speech Recognition with Contextual Phrase Prediction Network](https://mp.weixin.qq.com/s/1QkIvh8j7rrUjRyWOgAvdA)。
 ## Ecosystem
 
@@ -453,31 +450,6 @@ SenseVoice is part of the **FunAudioLLM** family:
 
 | Project | Description | Stars |
 |---------|-------------|-------|
-| [FunASR](https://github.com/modelscope/FunASR) | Industrial speech recognition toolkit — VAD, ASR, punctuation, diarization | [![](https://img.shields.io/github/stars/modelscope/FunASR?style=social)](https://github.com/modelscope/FunASR) |
-| [Fun-ASR](https://github.com/QwenAudio/Fun-ASR) | LLM-based ASR family — Nano for zh/en/ja + Chinese dialects; MLT-Nano for 31 languages | [![](https://img.shields.io/github/stars/QwenAudio/Fun-ASR?style=social)](https://github.com/QwenAudio/Fun-ASR) |
-| [CosyVoice](https://github.com/QwenAudio/CosyVoice) | Natural speech generation — multi-language, zero-shot cloning | [![](https://img.shields.io/github/stars/QwenAudio/CosyVoice?style=social)](https://github.com/QwenAudio/CosyVoice) |
-| [FunClip](https://github.com/modelscope/FunClip) | AI-powered video clipping with speech recognition | [![](https://img.shields.io/github/stars/modelscope/FunClip?style=social)](https://github.com/modelscope/FunClip) |
+| [FunASR](https://github.com/Unity-Billal-mesloub/Fun-ASR) | Industrial speech recognition toolkit — VAD, ASR, punctuation, diarization | [![](https://img.shields.io/github/stars/modelscope/FunASR?style=social)](https://github.com/Unity-Billal-mesloub/Fun-ASR) |
+| [Fun-ASR](https://github.com/Unity-Billal-mesloub/Fun-ASR) | LLM-based ASR family — Nano for zh/en/ja + Chinese dialects; MLT-Nano for 31 languages | [![](https://img.shields.io/github/stars/QwenAudio/Fun-ASR?style=social)](https://github.com/Unity-Billal-mesloub/Fun-ASR) |
 
-## License
-
-- Source code in this repository is licensed under the [MIT License](./LICENSE).
-- Model weights are distributed separately and follow the terms on each model card. The official [SenseVoiceSmall model card](https://huggingface.co/FunAudioLLM/SenseVoiceSmall) links to the [FunASR Model Open Source License Agreement](https://github.com/modelscope/FunASR/blob/main/MODEL_LICENSE); other artifacts and conversions may list different terms, so check their model cards before use.
-- The maintainers have provided an [official SenseVoiceSmall license clarification](https://github.com/QwenAudio/SenseVoice/issues/334#issuecomment-5083546605) for the [FunASR Model Open Source License Agreement v1.1](https://github.com/modelscope/FunASR/blob/58830eca4012644aac0c3218c3ccc7d98f003fda/MODEL_LICENSE): Commercial use of the official SenseVoiceSmall weights is permitted when the model license is followed; Section 3 is a responsibility and risk disclaimer rather than an additional non-commercial restriction; and fine-tuned derivative weights may remain private. The Section 2.2 attribution and model-name requirements still apply. This clarification covers the official weights only, so check the terms for third-party conversions and bundled artifacts separately.
-
-<a name="Community"></a>
-# Community
-If you encounter problems in use, you can directly raise Issues on the github page.
-
-You can also scan the following DingTalk group QR code to join the community group for communication and discussion.
-
-|                          FunASR                          |
-|:--------------------------------------------------------:|
-| <img src="image/dingding_funasr.png" width="250"/></div> |
-
-<a href="https://www.star-history.com/QwenAudio/SenseVoice">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/badge?repo=QwenAudio/SenseVoice&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/badge?repo=QwenAudio/SenseVoice" />
-    <img alt="Star History Rank" src="https://api.star-history.com/badge?repo=QwenAudio/SenseVoice" />
-  </picture>
-</a>
